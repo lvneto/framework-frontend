@@ -16,7 +16,7 @@ interface DataDividers{
 export function App() {
   const [number, setNumber] = useState('')
   const [isSendingNumber, setIsSendingNumber] = useState(false)
-  const [dividers, setDividers] = useState<any>(); 
+  const [dividers, setDividers] = useState<DataDividers>() || undefined; 
 
   async function handleSubmitNumber(event: FormEvent) {
     event.preventDefault();
@@ -36,20 +36,27 @@ export function App() {
 
     setIsSendingNumber(false);
   }
+
+  function handleWithCleanDividers () {
+    const clean = [] as any
+
+    setDividers(clean)
+  }
   
   return (
     <>
       <div className="grid place-items-center h-screen">
-        <form className="w-full max-w-sm" onSubmit={handleSubmitNumber}>
+        <form onSubmit={handleSubmitNumber}>
           <div className="flex items-center border-b border-teal-500 py-2">
-            <input onChange={event => setNumber(event.target.value)} className="appearance-none bg-transparent border-none w-full text-white-500 mr-3 py-1 px-2 leading-tight focus:outline-none" placeholder="Coloque aqui seu número" aria-label="Full name"/>
-            <button disabled={isSendingNumber} className="flex-shrink-0 bg-white hover:bg-gray-300 border-white hover:border-gray-600 text-sm border-4 text-gray-600 py-1 px-2 rounded" type="submit">
+            <input onChange={event => setNumber(event.target.value)} className="appearance-none border-4 text-gray-600 py-1 px-2 rounded  bg-white border-none w-full text-white-500 mr-3 py-1 px-2 leading-tight focus:outline-none" placeholder="Coloque aqui seu número (até 5 números)" aria-label="Full name"/>
+            <button disabled={isSendingNumber} className="flex-shrink-0 mr-3 bg-white hover:bg-gray-300 border-white hover:border-gray-600 text-sm border-4 text-gray-600 py-1 px-2 rounded" type="submit">
             { isSendingNumber ? <Loading/> : 'Enviar Número' }
-            </button>           
+            </button>  
+            <button onClick={handleWithCleanDividers} className="flex-shrink-0 bg-white hover:bg-gray-300 border-white hover:border-gray-600 text-sm border-4 text-gray-600 py-1 px-2 rounded" type="reset">Limpar</button>         
           </div>
-          <div className="grid place-items-center h-screen">
+          <div>
             <React.Fragment>
-              <JsonView data={dividers} shouldInitiallyExpand={(level) => true} style={darkStyles} />
+              <JsonView data={dividers ? dividers : 'Nenhum número'} shouldInitiallyExpand={(level) => true} style={darkStyles} />
             </React.Fragment>
           </div>  
         </form>
