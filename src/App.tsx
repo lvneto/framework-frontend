@@ -14,7 +14,7 @@ interface DataDividers{
   }
 } 
 
-export function App() {
+export default function App() {
 
   const [number, setNumber] = useState('')
   const [isSendingNumber, setIsSendingNumber] = useState(false)
