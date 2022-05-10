@@ -1,10 +1,10 @@
 ## Technologies used
 
-$ Tailwind css
+ Tailwind css
 
-$ Vit
+ Vit
 
-$ Axios
+ Axios
 
 ## Installation
 
@@ -19,3 +19,7 @@ $ npm run dev
 # Create a build
 
 $ npm run build
+
+# Change API URL
+
+Acess lib/api
