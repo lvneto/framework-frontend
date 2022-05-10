@@ -1,6 +1,4 @@
-## Framwork frontend
-
-## technologies used
+## Technologies used
 
 $ Tailwind css
 
@@ -14,9 +12,10 @@ $ npm install
 
 ## Running the app
 
-# development
+# Development mode
 
 $ npm run dev
 
-# create build
+# Create a build
+
 $ npm run build
