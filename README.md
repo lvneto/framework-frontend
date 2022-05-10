@@ -1,6 +1,5 @@
 ## Framwork frontend
 
-
 ## technologies used
 
 $ Tailwind css
@@ -8,9 +7,6 @@ $ Tailwind css
 $ Vit
 
 $ Axios
-
-## Running the app
-
 
 ## Installation
 
